@@ -1,3 +1,12 @@
+# 项目相关配置
+xiaobao:
+  # 名称
+  name: spring boot
+  # 版本
+  version: 1.0.0
+  # 版权年份
+  copyrightYear: 2020
+
 server:       #配置服务
   port: 8081         #配置服务端口
 
@@ -10,6 +19,11 @@ spring:
       primary: master
       datasource:
         master:
+          username: root
+          password: 1234
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/githubspringboot?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+        slave_1:
           username: root
           password: 1234
           driver-class-name: com.mysql.cj.jdbc.Driver
