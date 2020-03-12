@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    active: dev  #对应loc表示本地，dev表示生产或者测试表的配置
