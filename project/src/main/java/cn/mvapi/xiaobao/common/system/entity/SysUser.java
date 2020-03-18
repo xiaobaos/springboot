@@ -1,9 +1,12 @@
 package cn.mvapi.xiaobao.common.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -85,6 +88,8 @@ public class SysUser implements Serializable {
      * 删除标记
      */
     private String delFlag;
+    @TableField(exist = false)
+    List<SysRole> roles;
 
 
 }
