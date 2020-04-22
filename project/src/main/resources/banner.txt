@@ -1,9 +1,7 @@
 #这个是项目的版本号
 ${xiaobao.version}
-
 #这个是springboot的版本号
 ${spring-boot.version}
-
 #这个是springboot的版本号
 ${spring-boot.formatted-version}
 

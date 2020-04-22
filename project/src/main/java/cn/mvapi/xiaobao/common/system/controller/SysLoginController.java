@@ -12,7 +12,11 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 //import com.sun.jndi.toolkit.url.UrlUtil;
 //import org.apache.commons.codec.net.URLCodec;
@@ -20,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SysLoginController {
     @ResponseBody
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ReturnData login(SysUser user) {
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
@@ -45,41 +49,12 @@ public class SysLoginController {
         }
         return new ReturnData(200,"登录成功！",null);
     }
-    //注解验角色和权限
-    @RequiresPermissions("sys:role:delete")
-    @RequestMapping("/delete")
-    @ResponseBody
-    public String index() {
-        return "delete";
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "redirect:/login/index.html";
     }
 
-
-    @RequiresPermissions("sys:user:save")
-    @RequestMapping("/save")
-    @ResponseBody
-    public String save() {
-        return "save";
-    }
-
-    //@RequiresPermissions("sys:user:save")
-    @RequiresRoles("管理员")
-    @RequestMapping("/role")
-    @ResponseBody
-    public String role() {
-        return "role";
-    }
-
-    @RequiresPermissions("sys:role:otherpermission")
-    @RequestMapping("/otherPermission")
-    @ResponseBody
-    public String others() {
-        return "用户不存在的权限";
-    }
-
-    @RequiresRoles("otherRoles")
-    @RequestMapping("/otherRoles")
-    @ResponseBody
-    public String otherRoles() {
-        return "用户不存在的角色";
-    }
 }
