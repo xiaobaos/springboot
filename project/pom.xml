@@ -20,7 +20,7 @@
         <dynamic-datasource.version>2.5.4</dynamic-datasource.version>
         <commons.fileupload.version>1.3.3</commons.fileupload.version>
         <commons.io.version>2.5</commons.io.version>
-        <shiro.version>1.5.1</shiro.version>
+        <shiro.version>1.8.0</shiro.version>
         <kaptcha.version>0.0.9</kaptcha.version>
         <hutool.version>4.4.5</hutool.version>
         <mybatis-plus-generator.version>3.1.0</mybatis-plus-generator.version>
